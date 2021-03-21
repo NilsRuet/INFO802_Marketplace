@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>INFO802 - Marketplace</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Sell a product</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </p>
+        <p>
+            {{ form.weight.label }}<br>
+            {{ form.weight(size=32) }}
+        </p>
+        <p>
+            {{ form.price.label }}<br>
+            {{ form.price(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% if error %}
+    <div>{{ error }}</div>
+    {% endif%}
+{% endblock %}

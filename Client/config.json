@@ -1,0 +1,9 @@
+{
+    "flaskEncryptionKey":"info802flaskkey",
+    "soapWsdlUrl":"https://app-soapdelivery.azurewebsites.net/SOAPLivraison-1.0-SNAPSHOT/services/DeliveryCost?wsdl",
+    "mangopayClientId":"",
+    "mangopayApiKey":"",
+    "back4appAppId":"",
+    "back4appMasterKey":"",
+    "back4appClientKey":""
+}

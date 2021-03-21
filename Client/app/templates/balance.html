@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>INFO802 - Marketplace</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>My balance</h2>
+    <hr>
+    <h3>Wallet funds : {{ balance }}€</h3>
+    {% if session["loggedUser"]["CardId"] %}
+    <a href="/clearcard"><button>Forget card</button></a>
+    <form action="" method="post" novalidate>
+        {{ payForm.hidden_tag() }}
+        <p>
+            {{ payForm.amount.label }}<br>
+            {{ payForm.amount(size=32)}}
+        </p>
+        <p>{{ payForm.submit() }}</p>
+    </form>
+    {% else %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.cardNumber.label }}<br>
+            {{ form.cardNumber(size=32, minlength=14, maxlength=20) }}
+        </p>
+        <p>
+            {{ form.cvx.label }}<br>
+            {{ form.cvx(size=32, minlength=3, maxlength=3) }}
+        </p>
+        <p>
+            {{ form.expiration.label }}<br>
+            {{ form.expiration(size=32, minlength=4, maxlength=4) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+    {% endblock %}

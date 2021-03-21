@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>INFO802 - Marketplace</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Available products</h2>
+    <hr>
+    {%for i in range(0,length)%}
+    <p>
+        <div><a href="/product/{{products[i]['objectId']}}">{{products[i]["Name"]}}</a></div>
+        <div>{{products[i]["Price"]/100.0}}€, sold by {{products[i]["Seller"]["FirstName"]}} {{products[i]["Seller"]["LastName"]}}</div>
+    <p>
+    {%endfor%}
+{% endblock %}

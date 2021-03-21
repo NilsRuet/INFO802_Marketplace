@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>INFO802 - Marketplace</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>{{product["Name"]}}</h2>
+    <p>
+        {% if product["Description"] %}
+            {{product["Description"]}}
+        {% else %}
+            No description
+        {% endif %}
+    </p>
+    <div>Sold by {{ product["Seller"]["FirstName"] }} {{ product["Seller"]["LastName"] }}</div>
+    <div>{{product["Price"]/100.0}}€</div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.shippingDistance.label }}<br>
+            {{ form.shippingDistance(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

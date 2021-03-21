@@ -1,0 +1,6 @@
+Flask_WTF==0.14.3
+requests==2.22.0
+Flask==1.1.2
+zeep==4.0.0
+jsonpickle==2.0.0
+WTForms==2.3.3

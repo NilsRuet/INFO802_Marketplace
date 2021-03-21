@@ -1,0 +1,24 @@
+<html>
+    <head>
+        {% block script %}{% endblock%}
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Welcome</title>
+        {% endif %}
+    </head>
+    <body>
+        {% block header %}{% endblock %}
+        <hr>
+        <div><a href="/">Home</a></div>
+        
+        {% if session.loggedUser %}
+        <div><a href="/login">Logged as {{ session["loggedUser"]["FirstName"] }}</a></div>
+        <div><a href="/balance">Wallet: {{ balance }}€</a></div>
+        <div><a href="/createoffer">Post an offer</a></div>
+        {% else %}
+        <div><a href="/login">Log in</a></div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

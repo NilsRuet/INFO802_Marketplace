@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Test SOAP</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.weight.label }}<br>
+            {{ form.weight(size=32) }}
+        </p>
+        <p>
+            {{ form.distance.label }}<br>
+            {{ form.distance(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>INFO802 - Marketplace</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Buy {{product["Name"]}}</h2>
+    <div>
+        {% if product["Description"] %}
+            {{product["Description"]}}
+        {% else %}
+            No description
+        {% endif %}
+    </div>
+    <div>
+        Weight : {{product["Weight"]/1000.0}}
+    </div>
+    <div>Sold by {{ product["Seller"]["FirstName"] }} {{ product["Seller"]["LastName"] }}</div>
+    <div>Total cost : {{product["Price"]/100.0}}€ + {{shippingCost/100.0}}€ shipping</div>
+    <div>My wallet : {{balance}}€ -> {{newBalance}}€</div>
+    {% if (newBalance<0) %}
+    <div>Not enough money - <a href="/balance">add funds</a></div>
+    {% else %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>{{ form.submit() }}</p>
+    </form>    
+    {% endif %}
+{% endblock %}
